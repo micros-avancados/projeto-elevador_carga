@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=[Sensors]
+Comment=
+Exec= lxterminal -e python3 /home/pi/Sensors.py &
+Hidden=false
+terminal=true
