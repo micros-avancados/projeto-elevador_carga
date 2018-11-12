@@ -1,10 +1,10 @@
 # Projeto - Elevador de carga
-# O seguinte projeto tem como objetivo fazer a implementação e configuração de um elevador de carga, que leva os respectivos produtos para os seus determinados andares.
-# Um botão switch habilita/desabilita o funcionamento da esteira, e três sensores infravermelhos conectados à um Raspberry Pi farão a detecção dos produtos que serão descarregados da esteira para o elevador.
-# Sensores infravermelhos também indicarão a localização do elevador em um andar. Um botão de acionamento momentâneo indica a descarga do produto do elevador, e o envia ao térreo.
-# Logs serão salvos em outro Raspberry Pi em um banco de dados SQLite, contendo a data e hora que um produto foi descarregado, além de seu andar.
+# O seguinte projeto tem como objetivo fazer a implementação e configuração de um sensor de produtos, onde há um elevador que leva os respectivos produtos para os seus determinados andares.
+# Uma esteira encaminha os produtos para o elevador, e três sensores infravermelhos conectados à um Raspberry Pi farão a detecção dos produtos que serão descarregados da esteira para o elevador.
+# Logs serão salvos no Raspberry Pi em um banco de dados MySQL, contendo a data e hora que um produto foi detectado, além de seu andar.
+# Outro Raspberry Pi conectará-se ao banco de dados e terá a capacidade de gerar tabelas com ou sem parâmetros, contendo o ID do pacote, a data/hora de sua detecção e o andar de destino.
 # A conexão entre as placas será feita via rede wireless, descartando o uso de cabos.
 # A comunicação/interface com as placas será via monitor + teclado e mouse.
 # As linguagens utilizadas serão (em sistema Raspbian):
-C para leitura de sensores;
+Python para leitura de sensores;
 Java para controle e gerenciamento das informações + API para envio dos dados para banco de dados.
