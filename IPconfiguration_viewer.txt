@@ -1,0 +1,8 @@
+Fix IP address on wlan0:
+sudo nano /etc/dhcpcd.conf
+
+Add lines below interface eth0:
+interface wlan0
+static ip_address=192.168.0.250
+static routers=192.168.0.1
+static domain_name_servers=8.8.8.8

@@ -1,0 +1,14 @@
+sudo apt-get install mysql-server mysql-client
+sudo apt-get install python3-mysqldb python-mysqldb
+
+For database configuration:
+mysql -u root -p
+CREATE USER 'viewer'@'localhost' IDENTIFIED BY 'passphrase';
+GRANT ALL PRIVILEGES ON *.* TO 'viewer'@'localhost';
+FLUSH PRIVILEGES;
+quit;
+
+
+For remote access to server:
+mysql -u viewer -p -h 192.168.0.250
+USE packages;
