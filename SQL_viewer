@@ -1,8 +1,0 @@
-sudo apt-get install mysql-server mysql-client
-ROOT PASSWORD: root
-
-Run:
-CREATE USER 'viewer'@'192.168.0.250' IDENTIFIED BY 'passphrase';
-GRANT SELECT ON packages.* TO 'viewer'@'192.168.0.250';
-FLUSH PRIVILEGES;
-quit;
