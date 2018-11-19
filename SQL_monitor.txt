@@ -1,8 +1,7 @@
 sudo apt-get install mysql-server mysql-client
 sudo apt-get install python3-mysqldb python-mysqldb
-ROOT PASSWORD: root
 
-Run:
+For monitor configuration:
 mysql -u root -p
 CREATE DATABASE packages;
 USE packages;
@@ -11,9 +10,17 @@ GRANT ALL PRIVILEGES ON packages.* TO 'monitor'@'localhost';
 FLUSH PRIVILEGES;
 quit;
 
-Run:
 mysql -u monitor -p
 USE packages;
 CREATE TABLE log (id INT NOT NULL AUTO_INCREMENT PRIMARY KEY, date_time DATETIME, floor INT);
+
+
+For viewer configuration:
+mysql -u root -p
+CREATE USER 'viewer'@'192.168.0.250' IDENTIFIED BY 'passphrase';
+GRANT SELECT ON packages.* TO 'viewer'@'192.168.0.250';
+FLUSH PRIVILEGES;
+quit;
+
 
 Comment line "bind-address" in file "/etc/mysql/mariadb.conf.d/50-server.cnf"
