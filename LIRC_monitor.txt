@@ -1,0 +1,22 @@
+sudo apt-get install lirc
+
+Add lines on file "/etc/modules":
+sudo nano /etc/modules
+
+lirc_dev
+lirc_rpi gpio_out_pin=14 gpio_out_pin=15 gpio_out_pin=18
+
+
+Add lines on file "":
+sudo nano /etc/lirc/lirc_options.conf
+
+LIRCD_ARGS="--uinput"
+LOAD_MODULES=true
+DRIVER="default"
+DEVICE="/dev/lirc0"
+MODULES"lirc_rpi"
+LIRCD_CONF=""
+LIRCMD_CONF=""
+
+
+Remove comment from line "dtoverlay=lirc-rpi" in file "/boot/config.txt"
