@@ -1,7 +1,7 @@
 [Desktop Entry]
 Type=Application
-Name=[Sensors]
+Name=[Logs]
 Comment=
-Exec= lxterminal -e python3 /home/pi/Sensors.py &
+Exec= lxterminal -e java -jar /home/pi/java/Raspbian.jar
 Hidden=false
 terminal=true
