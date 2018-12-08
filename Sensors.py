@@ -67,7 +67,7 @@ while 1:
     distance = round(pulse_duration * 17150, 2)
     if(distance < 50):
         with database:
-            cur.execute("INSERT INTO test VALUES(default, NOW(), 1)")
+            cur.execute("INSERT INTO log VALUES(default, NOW(), 1)")
             print("Data committed for floor 1!")
             time.sleep(2)
             continue
@@ -84,7 +84,7 @@ while 1:
     distance = round(pulse_duration * 17150, 2)
     if(distance < 50):
         with database:
-            cur.execute("INSERT INTO test VALUES(default, NOW(), 2)")
+            cur.execute("INSERT INTO log VALUES(default, NOW(), 2)")
             print("Data committed for floor 2!")
             time.sleep(2)
             continue
@@ -101,7 +101,7 @@ while 1:
     distance = round(pulse_duration * 17150, 2)
     if(distance < 50):
         with database:
-            cur.execute("INSERT INTO test VALUES(default, NOW(), 3)")
+            cur.execute("INSERT INTO log VALUES(default, NOW(), 3)")
             print("Data committed for floor 3!")
             time.sleep(2)
             continue
