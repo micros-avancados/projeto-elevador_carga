@@ -7,3 +7,5 @@ Python para leitura de sensores;
 Java para controle e gerenciamento das informações + API para leitura dos dados do banco de dados.
 # Configuração dos dispositivos
 Documentos de texto descrevem as etapas necessárias para a configuração do banco de dados, da leitura de sensores e quais pinos são utilizados para tal, além das configurações de rede e inicialização dos programas no dispositivo "monitor". Também há documentos de texto com as etapas de configuração para conexão ao banco de dados no "monitor", além do aplicativo para acesso ao banco e configurações de inicialização do dispositivo "viewer". Os códigos em Python estão comentados para fácil compreensão da aplicação.
+# Sidenotes
+O elevador é controlado por outro dispositivo, bem como o funcionamento da esteira. Este projeto apenas habilita e desabilita a esteira, sendo que seu funcionamento está concentrado em outro circuito à parte do conjunto de sistemas referido neste documento.
