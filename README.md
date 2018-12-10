@@ -5,3 +5,5 @@ Logs serão salvos no Raspberry Pi em um banco de dados MySQL, contendo a data e
 A conexão entre as placas será feita via rede wireless, descartando o uso de cabos. A comunicação/interface com as placas será via conexão remota, havendo a opção de monitor + teclado/mouse. As linguagens utilizadas serão (em sistema Raspbian):
 Python para leitura de sensores;
 Java para controle e gerenciamento das informações + API para leitura dos dados do banco de dados.
+# Configuração dos dispositivos
+Documentos de texto descrevem as etapas necessárias para a configuração do banco de dados, da leitura de sensores e quais pinos são utilizados para tal, além das configurações de rede e inicialização dos programas no dispositivo "monitor". Também há documentos de texto com as etapas de configuração para conexão ao banco de dados no "monitor", além do aplicativo para acesso ao banco e configurações de inicialização do dispositivo "viewer". Os códigos em Python estão comentados para fácil compreensão da aplicação.
