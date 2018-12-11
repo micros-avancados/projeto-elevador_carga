@@ -5,8 +5,8 @@ import sys
 
 # Startup configuration
 IO.setwarnings(False)
-IO.cleanup()
-IO.setmode(IO.BCM)
+IO.cleanup() # Clear pins
+IO.setmode(IO.BCM) # Broadcom GPIO pin mapping
 
 # Input pins
 IO.setup(17, IO.IN) # Echo 1
@@ -27,12 +27,15 @@ cur = database.cursor()
 print("Starting system...")
 
 # Activate outputs
+# Pins 27, 24 and 6 are disabled
+# Pin 16 is enabled for mat operation
 IO.output(27, 0)
 IO.output(24, 0)
 IO.output(6, 0)
 IO.output(16, 1)
 time.sleep(2)
 
+# Global variables
 global x
 global pulse_start_time
 global pulse_end_time
@@ -42,33 +45,35 @@ global distance
 x = 0
 time.sleep(2)
 while 1:
-    #Shutdown occurs after 10 failed detection attempts
+    # System interruption
+    # Shutdown occurs after 10 failed detection attempts
     if(x == 10):
-        IO.output(16, 0)
+        IO.output(16, 0) # Mat disabled
         print("Halting...")
         time.sleep(2)
         while 1:
-            if(IO.input(4) == False):
-                IO.output(16, 1)
+            if(IO.input(4) == False): # Button input detection
+                IO.output(16, 1) # Mat enabled
                 break
             time.sleep(0.2)
         x = 0
         print("Restarting...")
     
     time.sleep(2)
-    IO.output(27, 1)
-    time.sleep(0.00001)
-    IO.output(27, 0)
+    IO.output(27, 1) # Enable signal to trigger
+    time.sleep(0.00001) # Sleep for 0.01ms
+    IO.output(27, 0) # Disable signal to trigger
     while IO.input(17) == 0:
-        pulse_start_time = time.time()
+        pulse_start_time = time.time() # Start time of signal
     while IO.input(17) == 1:
-        pulse_end_time = time.time()
-    pulse_duration = pulse_end_time - pulse_start_time
-    distance = round(pulse_duration * 17150, 2)
+        pulse_end_time = time.time() # Arrival time of reflected signal
+    pulse_duration = pulse_end_time - pulse_start_time # Difference between start and arrival
+    distance = round(pulse_duration * 17150, 2) # Distance calculated in cm
     if(distance < 50):
         with database:
             cur.execute("INSERT INTO log VALUES(default, NOW(), 1)")
             print("Data committed for floor 1!")
+            x = 0
             time.sleep(2)
             continue
 
@@ -86,6 +91,7 @@ while 1:
         with database:
             cur.execute("INSERT INTO log VALUES(default, NOW(), 2)")
             print("Data committed for floor 2!")
+            x = 0
             time.sleep(2)
             continue
 
@@ -103,6 +109,7 @@ while 1:
         with database:
             cur.execute("INSERT INTO log VALUES(default, NOW(), 3)")
             print("Data committed for floor 3!")
+            x = 0
             time.sleep(2)
             continue
 
