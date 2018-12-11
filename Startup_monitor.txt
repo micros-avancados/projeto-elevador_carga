@@ -10,4 +10,4 @@ Exec= lxterminal -e python3 /home/pi/Sensors.py &
 Hidden=false
 terminal=true
 
-Place file "Sensors.py" on /home/pi/
+Place file "Sensors.py" on /home/pi/, for reading ultrasonic sensors
