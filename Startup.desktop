@@ -1,7 +1,0 @@
-[Desktop Entry]
-Type=Application
-Name=[Logs]
-Comment=
-Exec= lxterminal -e java -jar /home/pi/java/Raspbian.jar
-Hidden=false
-terminal=true
